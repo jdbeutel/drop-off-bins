@@ -23,38 +23,11 @@
 			</g:if>
 			<ol class="property-list bin">
 			
-				<g:if test="${binInstance?.lat}">
-				<li class="fieldcontain">
-					<span id="lat-label" class="property-label"><g:message code="bin.lat.label" default="Lat" /></span>
-					
-						<span class="property-value" aria-labelledby="lat-label"><g:fieldValue bean="${binInstance}" field="lat"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${binInstance?.lng}">
-				<li class="fieldcontain">
-					<span id="lng-label" class="property-label"><g:message code="bin.lng.label" default="Lng" /></span>
-					
-						<span class="property-value" aria-labelledby="lng-label"><g:fieldValue bean="${binInstance}" field="lng"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${binInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="bin.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${binInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${binInstance?.note}">
-				<li class="fieldcontain">
-					<span id="note-label" class="property-label"><g:message code="bin.note.label" default="Note" /></span>
-					
-						<span class="property-value" aria-labelledby="note-label"><g:fieldValue bean="${binInstance}" field="note"/></span>
 					
 				</li>
 				</g:if>
@@ -78,8 +51,64 @@
 					
 				</li>
 				</g:if>
-			
-			</ol>
+
+                <g:if test="${binInstance?.city}">
+                    <li class="fieldcontain">
+                        <span id="city-label" class="property-label"><g:message code="bin.city.label" default="City" /></span>
+
+                        <span class="property-value" aria-labelledby="city-label"><g:fieldValue bean="${binInstance}" field="city"/></span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${binInstance?.state}">
+                    <li class="fieldcontain">
+                        <span id="state-label" class="property-label"><g:message code="bin.state.label" default="State" /></span>
+
+                        <span class="property-value" aria-labelledby="state-label"><g:fieldValue bean="${binInstance}" field="state"/></span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${binInstance?.zip}">
+				<li class="fieldcontain">
+					<span id="zip-label" class="property-label"><g:message code="bin.zip.label" default="Zip" /></span>
+					
+						<span class="property-value" aria-labelledby="zip-label"><g:fieldValue bean="${binInstance}" field="zip"/></span>
+					
+				</li>
+				</g:if>
+
+                <g:if test="${binInstance?.lat}">
+                    <li class="fieldcontain">
+                        <span id="lat-label" class="property-label"><g:message code="bin.lat.label" default="Lat" /></span>
+
+                        <span class="property-value" aria-labelledby="lat-label"><g:fieldValue bean="${binInstance}" field="lat"/></span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${binInstance?.lng}">
+                    <li class="fieldcontain">
+                        <span id="lng-label" class="property-label"><g:message code="bin.lng.label" default="Lng" /></span>
+
+                        <span class="property-value" aria-labelledby="lng-label"><g:fieldValue bean="${binInstance}" field="lng"/></span>
+
+                    </li>
+                </g:if>
+
+
+                <g:if test="${binInstance?.note}">
+                    <li class="fieldcontain">
+                        <span id="note-label" class="property-label"><g:message code="bin.note.label" default="Note" /></span>
+
+                        <span class="property-value" aria-labelledby="note-label"><g:fieldValue bean="${binInstance}" field="note"/></span>
+
+                    </li>
+                </g:if>
+
+
+            </ol>
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${binInstance?.id}" />

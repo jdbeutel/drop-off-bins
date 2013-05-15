@@ -23,33 +23,45 @@
 			<table>
 				<thead>
 					<tr>
-					
-						<g:sortableColumn property="lat" title="${message(code: 'bin.lat.label', default: 'Lat')}" />
-					
-						<g:sortableColumn property="lng" title="${message(code: 'bin.lng.label', default: 'Lng')}" />
-					
-						<g:sortableColumn property="name" title="${message(code: 'bin.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="note" title="${message(code: 'bin.note.label', default: 'Note')}" />
-					
-						<g:sortableColumn property="streetAddress" title="${message(code: 'bin.streetAddress.label', default: 'Street Address')}" />
-					
+
+                        <g:sortableColumn property="name" title="${message(code: 'bin.name.label', default: 'Name')}" />
+
+                        <g:sortableColumn property="streetAddress" title="${message(code: 'bin.streetAddress.label', default: 'Street Address')}" />
+
+                        <g:sortableColumn property="city" title="${message(code: 'bin.city.label', default: 'City')}" />
+
+						<g:sortableColumn property="state" title="${message(code: 'bin.state.label', default: 'State')}" />
+
+                        <g:sortableColumn property="zip" title="${message(code: 'bin.zip.label', default: 'Zip Code')}" />
+
+                        <g:sortableColumn property="lat" title="${message(code: 'bin.lat.label', default: 'Lat')}" />
+
+                        <g:sortableColumn property="lng" title="${message(code: 'bin.lng.label', default: 'Lng')}" />
+
+                        <g:sortableColumn property="note" title="${message(code: 'bin.note.label', default: 'Note')}" />
+
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${binInstanceList}" status="i" var="binInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${binInstance.id}">${fieldValue(bean: binInstance, field: "lat")}</g:link></td>
-					
-						<td>${fieldValue(bean: binInstance, field: "lng")}</td>
-					
-						<td>${fieldValue(bean: binInstance, field: "name")}</td>
-					
+						<td><g:link action="show" id="${binInstance.id}">${fieldValue(bean: binInstance, field: "name")}</g:link></td>
+
+                        <td>${fieldValue(bean: binInstance, field: "streetAddress")}</td>
+
+                        <td>${fieldValue(bean: binInstance, field: "city")}</td>
+
+                        <td>${fieldValue(bean: binInstance, field: "state")}</td>
+
+                        <td>${fieldValue(bean: binInstance, field: "zip")}</td>
+
+						<td>${fieldValue(bean: binInstance, field: "lat")}</td>
+
+                        <td>${fieldValue(bean: binInstance, field: "lng")}</td>
+
 						<td>${fieldValue(bean: binInstance, field: "note")}</td>
-					
-						<td>${fieldValue(bean: binInstance, field: "streetAddress")}</td>
-					
+
 					</tr>
 				</g:each>
 				</tbody>

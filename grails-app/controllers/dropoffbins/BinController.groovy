@@ -12,7 +12,8 @@ class BinController {
 
     def map() {
         def bins = Bin.list()
-        [bins: bins, avgLat: avg(bins*.lat), avgLng: avg(bins*.lng)]
+        def infowindows = bins.collectEntries {[it, g.render(template: 'infowindow', model: [bin: it]).replaceAll('\n', ' ')]}
+        [bins: bins, infowindows: infowindows, avgLat: avg(bins*.lat), avgLng: avg(bins*.lng)]
     }
 
     private avg(List<String> list) {
