@@ -10,6 +10,10 @@ class BinController {
         redirect(action: "list", params: params)
     }
 
+    def map() {
+        [foo: 'bar']
+    }
+
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [binInstanceList: Bin.list(params), binInstanceTotal: Bin.count()]
