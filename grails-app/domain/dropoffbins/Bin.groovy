@@ -32,4 +32,8 @@ class Bin {
     }
 
     String toString() { name }
+
+    Report lastReport() {
+        reports ? reports.sort {it.dateCreated}.last() : null
+    }
 }

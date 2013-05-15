@@ -53,14 +53,16 @@
 
         function addBins(map, infowindow) {
             <g:each var="bin" in="${bins}">
-            addBin(map, infowindow, "${bin.name}", ${bin.lat}, ${bin.lng}, '${infowindows[bin]}');
+            addBin(map, infowindow, "${bin.name}", ${bin.lat}, ${bin.lng}, '${infowindows[bin]}', '<g:lastReportedStatusIcon bin="${bin}"/>');
             </g:each>
         }
 
-        function addBin(map, infowindow, name, lat, lng, content) {
+        function addBin(map, infowindow, name, lat, lng, content, statusImg) {
             var m = new google.maps.Marker({
                 position: new google.maps.LatLng(lat, lng),
-                title: name
+                title: name,
+                map: m,
+                icon: statusImg
             });
             m.setMap(map);
             google.maps.event.addListener(m, 'click', function() {
@@ -69,7 +71,7 @@
                 infowindow.open(map, m);
                 google.maps.event.addListener(document.getElementById("zoom"), 'click', function(mouseEvent) {
                     mouseEvent.stop();
-                    alert('zoom was clicked');
+                    alert('zoom was clicked');  // todo: make zooming work
                     map.setCenter( new google.maps.LatLng(lat, lng));
                     map.setZoom(15);
                 });
