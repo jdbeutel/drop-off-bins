@@ -14,7 +14,16 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            // url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+
+            // The heroku plugin updates all of the following, if the DATABASE_URL env var is set, e.g.,
+            // $ export DATABASE_URL=postgres://postgres:XXX@localhost/dropoffbins
+            // where XXX is the password.
+            driverClassName = "org.postgresql.Driver"
+            dialect = org.hibernate.dialect.PostgreSQLDialect
+            url = "jdbc:postgresql://localhost:5432/dropoffbins"
+            username = "postgres"
+            // dataSource.password is in a secret external config file (specified by the config.location system property)
         }
     }
     test {
