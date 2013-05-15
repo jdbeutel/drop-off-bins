@@ -11,7 +11,12 @@ class BinController {
     }
 
     def map() {
-        [foo: 'bar']
+        def bins = Bin.list()
+        [bins: bins, avgLat: avg(bins*.lat), avgLng: avg(bins*.lng)]
+    }
+
+    private avg(List<String> list) {
+        list.collect {new BigDecimal(it)}.sum() / list.size()
     }
 
     def list(Integer max) {
