@@ -12,12 +12,21 @@ class BinController {
 
     def map() {
         def bins = Bin.list()
-        def infowindows = bins.collectEntries {[it, g.render(template: 'infowindow', model: [bin: it]).replaceAll('\n', ' ')]}
+        def infowindows = bins.collectEntries {[it, g.render(template: 'infowindow', model: [bin: it]).replaceAll('\n', ' ').replaceAll('\r', ' ')]}
         [bins: bins, infowindows: infowindows, avgLat: avg(bins*.lat), avgLng: avg(bins*.lng)]
     }
 
     private avg(List<String> list) {
         list.collect {new BigDecimal(it)}.sum() / list.size()
+    }
+
+    def report(Long id) {
+        def binInstance = Bin.get(id)
+        def status = Status.valueOf(params.status)
+        binInstance.addToReports(new Report(status: status))
+        binInstance.save()
+        // todo: AJAX with Google Maps v.3
+        redirect(action: 'map')
     }
 
     def list(Integer max) {
