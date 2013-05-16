@@ -15,6 +15,6 @@ I'm trying out some that are new to me.
 * Google Maps API v.3
 * Grails 2.2.0 (because Heroku said it cannot handle 2.2.2)
 * PostgreSQL 9.1, because
-** Heroku does not support MySQL (it supports just PostgreSQL 9.0, 9.1, and 9.2 at the moment), and
-** the PostgreSQL 9.2 driver in Maven Central [is said to not support Java 6](https://github.com/pgjdbc/pgjdbc/issues/46)
+ * Heroku does not support MySQL (it supports just PostgreSQL 9.0, 9.1, and 9.2 at the moment), and
+ * the PostgreSQL 9.2 driver in Maven Central [is said to not support Java 6](https://github.com/pgjdbc/pgjdbc/issues/46)
 * Heroku Grails plugin
