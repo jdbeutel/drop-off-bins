@@ -7,6 +7,8 @@ This web app will help recyclers find ones that are not full,
 and help the management company schedule efficient pick-ups,
 with a map for sharing status reports.
 
+![screen shot](src/docs/guide/images/drop-off-half-screenshot.png)
+
 Technologies
 ------------
 
